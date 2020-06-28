@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+    mariadb:
+        image: mariadb:${MYSQL_VERSION}
+        container_name: ${PROJECT_NAME}DB
+        env_file: .env
+        ports:
+            - 3306:3306
+        volumes:
+            - mariadb-data:${MYSQL_VOLUME_PATH}
+    php:
+        env_file: .env
+        build:
+            context: ./php
+        image: php:${PHP_VERSION}-apache
+        container_name: ${PROJECT_NAME}-php-${PHP_VERSION}
+        ports:
+            - 80:80
+        depends_on:
+            - mariadb
+
+volumes:
+    mariadb-data:
+    drupal-data:
