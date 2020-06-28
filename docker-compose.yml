@@ -1,23 +1,21 @@
 version: "3.8"
 services:
     mariadb:
-        image: mariadb:${MYSQL_VERSION}
-        container_name: ${PROJECT_NAME}DB
-        env_file: .env
+        image: mariadb:10.5.4
+        container_name: MariaDB
         ports:
             - 3306:3306
         volumes:
-            - mariadb-data:${MYSQL_VOLUME_PATH}
+            - mariadb-data:/var/lib/mysql
     php:
-        env_file: .env
-        build:
-            context: ./php
-        image: php:${PHP_VERSION}-apache
-        container_name: ${PROJECT_NAME}-php-${PHP_VERSION}
+        image: php:7.2-apache
+        container_name: drupal8-php-7.2
         ports:
             - 80:80
         depends_on:
             - mariadb
+        volumes:
+            - drupal-data:/var/www/html/website
 
 volumes:
     mariadb-data:
