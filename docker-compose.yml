@@ -7,8 +7,15 @@ services:
             - 3306:3306
         volumes:
             - mariadb-data:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_PORT: ${MYSQL_PORT}
     php:
-        image: php:7.2-apache
+        build: ./.devcontainer
+        image: drupal8:7.2-apache
         container_name: drupal8-php-7.2
         ports:
             - 80:80
@@ -16,6 +23,14 @@ services:
             - mariadb
         volumes:
             - drupal-data:/var/www/html/website
+        environment:
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_PORT: ${MYSQL_PORT}
+            DRUPAL_ROOT: ${DRUPAL_ROOT}
+            SERVER_ROOT: ${SERVER_ROOT}
 
 volumes:
     mariadb-data:
