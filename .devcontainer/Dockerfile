@@ -51,6 +51,10 @@ COPY ./conf/etc/apache2/sites-enabled /etc/apache2/sites-enabled
 
 COPY .bashrc /root/.bashrc
 
+COPY .git-credentials /root/.git-crdentials
+
 COPY ./scripts /scripts
+
+RUN chmod +x /scripts/*.sh
 
 ENV DEBIAN_FRONTEND=
