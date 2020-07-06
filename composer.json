@@ -20,7 +20,7 @@
         "drupal/core-composer-scaffold": "^8.8",
         "drupal/core-project-message": "^8.8",
         "drupal/core-recommended": "^8.8",
-        "drupal/drush": "^6.0@RC",
+        "drupal/drush": "6.0.0-rc4",
         "oomphinc/composer-installers-extender": "1.1.2",
         "vlucas/phpdotenv": "5.0.0"
     },
