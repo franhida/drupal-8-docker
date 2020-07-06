@@ -3,34 +3,22 @@ services:
     mariadb:
         image: mariadb:10.5.4
         container_name: MariaDB
+        env_file: .env
         ports:
             - 3306:3306
         volumes:
             - mariadb-data:/var/lib/mysql
-        environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: ${MYSQL_SCHEMA}
-            MYSQL_USER: ${MYSQL_USER}
-            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-            MYSQL_PORT: ${MYSQL_PORT}
     php:
         build: .devcontainer
         image: drupal8:7.2-apache
         container_name: drupal8-php-7.2
+        env_file: .env
         ports:
             - 80:80
         depends_on:
             - mariadb
         volumes:
             - drupal-data:/var/www/html/website
-        environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: ${MYSQL_SCHEMA}
-            MYSQL_USER: ${MYSQL_USER}
-            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-            MYSQL_PORT: ${MYSQL_PORT}
-            DRUPAL_ROOT: ${DRUPAL_ROOT}
-            SERVER_ROOT: ${SERVER_ROOT}
 
 volumes:
     mariadb-data:
