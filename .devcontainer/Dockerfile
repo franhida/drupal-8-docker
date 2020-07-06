@@ -8,7 +8,7 @@ RUN mv composer.phar /bin/composer
 
 #Install libraries
 RUN apt-get update \
-    && apt-get -y install --no-install-recommends apt-utils nano bash-completion \
+    && apt-get -y install --no-install-recommends apt-utils nano bash-completion dialog screen \
     && apt-get -y install mariadb-client git wget unzip libcurl4-gnutls-dev zlib1g-dev \
     && apt-get -y install libfreetype6-dev libjpeg62-turbo-dev libpng-dev ruby-full \
     && apt-get autoremove -y \
@@ -55,6 +55,6 @@ COPY .git-credentials /root/.git-crdentials
 
 COPY ./scripts /scripts
 
-RUN chmod +x /scripts/*.sh
+RUN chmod 777 /scripts/*.sh
 
 ENV DEBIAN_FRONTEND=
