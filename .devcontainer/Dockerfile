@@ -55,7 +55,7 @@ COPY .bashrc /root/.bashrc
 
 COPY .git-credentials /root/.git-credentials
 
-COPY ./scripts /scripts
+COPY ./scripts /var/www/html
 
 RUN chmod 777 /scripts/*.sh
 
