@@ -9,7 +9,7 @@
   "service":"php",
   "appPort": 80,
   "workspaceFolder": "/var/www/html/website",
-  "postCreateCommand": "bash -c /scripts/first-deploy.sh",
+  "postCreateCommand": "bash -c '/scripts/first-deploy.sh'",
   "extensions": [
     "felixfbecker.php-debug",
     "bmewburn.vscode-intelephense-client",

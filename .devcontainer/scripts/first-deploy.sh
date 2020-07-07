@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /var/www/html
-mkdir -p shared/files
+mkdir -p /var/www/html/shared/files
 git config --global user.name "$GIT_USER"
 git config --global user.email "$GIT_MAIL"
 git config --global credential.helper store
