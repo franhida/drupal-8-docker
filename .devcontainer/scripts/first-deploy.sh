@@ -1,5 +1,6 @@
 #!/bin/bash
 mkdir -p /var/www/html/shared/files
+chmod 777 /var/www/html/shared/files
 git config --global user.name "$GIT_USER"
 git config --global user.email "$GIT_MAIL"
 git config --global credential.helper store
