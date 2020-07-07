@@ -51,7 +51,7 @@ COPY ./conf/etc/apache2/sites-enabled /etc/apache2/sites-enabled
 
 COPY .bashrc /root/.bashrc
 
-COPY .git-credentials /root/.git-crdentials
+COPY .git-credentials /root/.git-credentials
 
 COPY ./scripts /scripts
 
