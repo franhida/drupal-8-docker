@@ -24,6 +24,7 @@ services:
             - mariadb
         volumes:
             - drupal-data:/var/www/html/website
+            - drupal-files:/var/www/shared/files
         environment:
             - MYSQL_DATABASE
             - MYSQL_USER
@@ -48,4 +49,5 @@ services:
 volumes:
     mariadb-data:
     drupal-data:
+    drupal-files:
     solr-data:

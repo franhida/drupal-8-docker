@@ -23,12 +23,3 @@
 
 # Ignore .env files as they are personal
 /.env
-
-# Oauth Keys dir
-keys
-
-# Version File
-version.json
-
-# Uncompressed DB File
-hic
