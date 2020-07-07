@@ -7,4 +7,4 @@ git clone https://github.com/franhida/drupal-8-docker.git /var/www/html/website
 cd /var/www/html/website
 composer install
 mkdir -p /var/www/html/website/web/sites/default
-ln -s /var/www/html/website/shared/files /var/www/html/website/web/sites/default/files
+ln -s /var/www/html/shared/files /var/www/html/website/web/sites/default/files
