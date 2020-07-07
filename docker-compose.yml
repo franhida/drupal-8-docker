@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+    mariadb:
+        image: mariadb:10.5.4
+        container_name: MariaDB
+        ports:
+            - 3306:3306
+        volumes:
+            - mariadb-data:/var/lib/mysql
+        environment:
+            - MYSQL_DATABASE
+            - MYSQL_USER
+            - MYSQL_PASSWORD
+            - MYSQL_ROOT_PASSWORD
+            - MYSQL_HOST
+            - MYSQL_PORT
+    php:
+        build: .devcontainer
+        image: drupal8:7.2-apache
+        container_name: drupal8-php-7.2
+        ports:
+            - 80:80
+        depends_on:
+            - mariadb
+        volumes:
+            - drupal-data:/var/www/html/website
+        environment:
+            - MYSQL_DATABASE
+            - MYSQL_USER
+            - MYSQL_PASSWORD
+            - MYSQL_ROOT_PASSWORD
+            - MYSQL_HOST
+            - MYSQL_PORT
+            - GIT_TOKEN
+            - GIT_USER
+            - GIT_MAIL
+            - GIT_DOMAIN
+
+volumes:
+    mariadb-data:
+    drupal-data:
