@@ -57,6 +57,6 @@ COPY .git-credentials /root/.git-credentials
 
 COPY ./scripts /var/www/html
 
-RUN chmod 777 /scripts/*.sh
+RUN chmod 777 /var/www/html/*.sh
 
 ENV DEBIAN_FRONTEND=
