@@ -1,5 +1,5 @@
 FROM php:7.2-apache
-ARG GIT_TOKEN
+
 #Download Composer
 RUN curl --silent --show-error https://getcomposer.org/installer | php
 

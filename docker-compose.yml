@@ -2,7 +2,7 @@ version: "3.8"
 services:
     mariadb:
         image: mariadb:10.5.4
-        container_name: MariaDB
+        container_name: drupal8-mariadb-10.5.4
         ports:
             - 3306:3306
         volumes:
@@ -15,8 +15,8 @@ services:
             - MYSQL_HOST
             - MYSQL_PORT
     php:
-        build: .devcontainer
-        image: drupal8:7.2-apache
+        build: .devcontainer/php
+        image: franhida:drupal8-7.2-apache
         container_name: drupal8-php-7.2
         ports:
             - 80:80
