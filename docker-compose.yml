@@ -35,7 +35,17 @@ services:
             - GIT_USER
             - GIT_MAIL
             - GIT_DOMAIN
-
+    solr:
+        image: solr:8.5.2
+        container_name: drupal8-solr-8.5.2
+        ports:
+            - 8983:8983
+        depends_on: 
+            - mariadb
+            - php
+        volumes: 
+            - solr-data:/var/solr/data
 volumes:
     mariadb-data:
     drupal-data:
+    solr-data:

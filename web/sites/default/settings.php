@@ -821,3 +821,6 @@ $databases['default']['default'] = [
     'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
     'driver' => 'mysql',
 ];
+
+$config['search_api.server.hic_global']['backend_config']['connector_config']['host'] = getenv('SOLR_HOST');
+$config['search_api.server.hic_global']['backend_config']['connector_config']['core'] = getenv('SOLR_CORE');
