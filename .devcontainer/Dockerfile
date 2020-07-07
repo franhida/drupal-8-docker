@@ -36,7 +36,7 @@ RUN docker-php-ext-install opcache \
 RUN docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
-RUN pecl install xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 RUN gem update --system \
   && gem install compass
