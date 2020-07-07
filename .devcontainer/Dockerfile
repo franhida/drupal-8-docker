@@ -38,6 +38,8 @@ RUN docker-php-ext-configure zip \
 
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
+RUN a2enmod rewrite
+
 RUN gem update --system \
   && gem install compass
 
