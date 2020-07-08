@@ -39,10 +39,7 @@ services:
             - SOLR_HOST
             - SOLR_CORE
     solr:
-        build:
-            context: .devcontainer/solr
-            args:
-                - SOLR_CORE
+        build: .devcontainer/solr
         image: franhida:solr-8.5.2
         container_name: drupal8-solr-8.5.2
         ports:
@@ -54,6 +51,10 @@ services:
             - solr-data:/var/solr/data
         environment:
             - SOLR_CORE
+        entrypoint: 
+        - bash
+        - -c
+        - precreate-core ${SOLR_CORE} /drupal-core
 volumes:
     mariadb-data:
     drupal-data:
