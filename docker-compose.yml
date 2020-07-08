@@ -54,7 +54,7 @@ services:
         entrypoint: 
         - bash
         - -c
-        - precreate-core ${SOLR_CORE} /drupal-core
+        - precreate-core ${SOLR_CORE} /opt/solr/server/solr/configsets/drupal-core; exec solr -f
 volumes:
     mariadb-data:
     drupal-data:
