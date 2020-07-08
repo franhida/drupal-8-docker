@@ -1,5 +1,5 @@
 FROM solr:8.5.2
 ARG SOLR_CORE
 COPY config.zip /tmp/config.zip
-RUN unzip /tmp/config.zip -d /tmp/drupal-conf
-RUN /opt/solr/bin/solr create_core -c ${SOLR_CORE} -d /tmp/drupal-conf -n ${SOLR_CORE}
+RUN unzip /tmp/config.zip -d /opt/solr/server/solr/configsets/drupal-conf
+RUN precreate-core ${SOLR_CORE} /opt/solr/server/solr/configsets/drupal-conf
