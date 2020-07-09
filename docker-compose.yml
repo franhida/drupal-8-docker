@@ -51,10 +51,10 @@ services:
             - solr-data:/var/solr/data
         environment:
             - SOLR_CORE
-        entrypoint: 
-        - bash
-        - -c
-        - precreate-core ${SOLR_CORE} /opt/solr/server/solr/configsets/drupal-core; exec solr -f
+        entrypoint:
+            - bash
+            - "-c"
+            - precreate-core ${SOLR_CORE} /opt/solr/server/solr/configsets/drupal-core-config; exec solr -f
 volumes:
     mariadb-data:
     drupal-data:
