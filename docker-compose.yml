@@ -1,8 +1,8 @@
 version: '3.8'
 services:
   mariadb:
-    image: mariadb:10.5.4
-    container_name: drupal8-mariadb-10.5.4
+    image: mariadb:10.5.9
+    container_name: drupal8-mariadb-10.5.9
     ports:
     - 3306:3306
     volumes:
