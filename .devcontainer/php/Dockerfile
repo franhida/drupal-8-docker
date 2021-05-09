@@ -58,8 +58,6 @@ COPY ./conf/etc/apache2/sites-enabled /etc/apache2/sites-enabled
 
 COPY .bashrc /root/.bashrc
 
-COPY ./scripts /var/www/html
-
 RUN chmod 777 /var/www/html/*.sh
 
 ENV DEBIAN_FRONTEND=
