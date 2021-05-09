@@ -1,17 +1,28 @@
 {
   "name": "Drupal Dev",
-  "settings": {
+"settings": {
+    "composer.executablePath": "/usr/local/bin/composer",
+    "php.executablePath": "/usr/local/bin/php",
+    "php.validate.executablePath": "/usr/local/bin/php",
+    "php.validate.enable": true,
     "terminal.integrated.shell.linux": "/bin/bash"
   },
   "dockerComposeFile": [
     "../docker-compose.yml"
   ],
   "service":"php",
-  "appPort": 80,
+  "forwardPorts": [
+    80
+  ],
+  "postCreateCommand": "/var/www/html/first_deploy.sh",
   "workspaceFolder": "/var/www/html/website",
   "extensions": [
-    "felixfbecker.php-debug",
+    "github.vscode-pull-request-github",
+    "editorconfig.editorconfig",
     "bmewburn.vscode-intelephense-client",
-    "mrmlnc.vscode-scss"
+    "felixfbecker.php-debug",
+    "ikappas.composer",
+    "redhat.vscode-yaml",
+    "firefox-devtools.vscode-firefox-debug"
   ]
 }
